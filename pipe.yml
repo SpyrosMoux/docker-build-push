@@ -1,8 +1,8 @@
 name: Docker build &amp; push
-image: SpyrosMoux/docker-build-push:0.0.0
+image: spyrosmoux/docker-build-push:0.0.0
 description: Build and push a docker image to DockerHub
 category: Build
-repository: https://bitbucket.org/SpyrosMoux/docker-build-push
+repository: https://github.com/SpyrosMoux/docker-build-push
 vendor:
   name: SpyrosMoux
   website: https://github.com/SpyrosMoux
@@ -12,4 +12,3 @@ maintainer:
 tags:
     - docker
     - build
-  

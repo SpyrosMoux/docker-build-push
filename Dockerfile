@@ -19,4 +19,4 @@ RUN wget --no-verbose -P / https://bitbucket.org/bitbucketpipelines/bitbucket-pi
 
 RUN chmod a+x /*.sh
 
-ENTRYPOINT ["sleep", "10000"]
+ENTRYPOINT ["/pipe.sh"]
