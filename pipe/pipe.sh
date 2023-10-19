@@ -10,7 +10,6 @@ info "Executing the pipe..."
 # Required parameters
 ACCOUNT_NAME=${ACCOUNT_NAME:?'ACCOUNT_NAME variable missing.'}
 IMAGE_NAME=${IMAGE_NAME:?'NAME variable missing.'}
-IMAGE_TAG=${IMAGE_TAG:?'IMAGE_TAG variable missing.'}
 
 
 # Default parameters
@@ -19,6 +18,7 @@ PUSH=${PUSH:="false"}
 DOCKERFILE=${DOCKERFILE:="."}
 DOCKER_USERNAME=${DOCKER_USERNAME:=""}
 DOCKER_PASSWORD=${DOCKER_PASSWORD:=""}
+IMAGE_TAG=${IMAGE_TAG:="latest"}
 
 run docker build -t ${ACCOUNT_NAME}/${IMAGE_NAME}:${IMAGE_TAG} ${DOCKERFILE}
 
