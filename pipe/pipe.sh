@@ -23,7 +23,7 @@ IMAGE_TAG=${IMAGE_TAG:="latest"}
 run docker build -t ${ACCOUNT_NAME}/${IMAGE_NAME}:${IMAGE_TAG} ${DOCKERFILE}
 
 if [[ "${PUSH}" == "true" ]]; then
-  echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+  docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
   run docker push ${ACCOUNT_NAME}/${IMAGE_NAME}:${IMAGE_TAG}
 fi
 
