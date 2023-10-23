@@ -19,11 +19,12 @@ DOCKERFILE=${DOCKERFILE:="."}
 DOCKER_USERNAME=${DOCKER_USERNAME:=""}
 DOCKER_PASSWORD=${DOCKER_PASSWORD:=""}
 IMAGE_TAG=${IMAGE_TAG:="latest"}
+REGISTRY_URL=${REGISTRY_URL:="https://index.docker.io/v1/"}
 
 run docker build -t ${ACCOUNT_NAME}/${IMAGE_NAME}:${IMAGE_TAG} ${DOCKERFILE}
 
 if [[ "${PUSH}" == "true" ]]; then
-  docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
+  echo "$DOCKER_PASSWORD" | docker login ${REGISTRY_URL} -u ${DOCKER_USERNAME} --password-stdin
   run docker push ${ACCOUNT_NAME}/${IMAGE_NAME}:${IMAGE_TAG}
 fi
 
