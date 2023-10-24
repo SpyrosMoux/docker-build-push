@@ -1,0 +1,21 @@
+name: "Build CI"
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test
+        run: |
+          export DOCKER_USERNAME=${{ secrets.DOCKER_USERNAME }}
+          export DOCKER_PASSWORD=${{ secrets.DOCKER_PASSWORD }}
+          npm install -g bats
+          chmod a+x test/*.bats
+          bats test/test.bats
