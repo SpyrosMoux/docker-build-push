@@ -19,6 +19,7 @@ setup() {
         -e DEBUG="true" \
         -v $(pwd):$(pwd) \
         -w $(pwd) \
+        -v /var/run/docker.sock:/var/run/docker.sock \
         ${DOCKER_IMAGE}:test
 
     echo "Status: $status"
